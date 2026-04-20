@@ -2,33 +2,28 @@ version: 0.2
 
 env:
   variables:
-    STATIC_TOKEN: "test-token"
-    JWT_SECRET_KEY: "test-jwt-secret"
+    STATIC_TOKEN: test-token
+    JWT_SECRET_KEY: test-jwt-secret
 
 phases:
   install:
     runtime-versions:
       python: 3.8
     commands:
-      - echo "--- Instalando dependencias ---"
       - pip install -r requirements.txt
 
   pre_build:
     commands:
-      - echo "--- Ejecutando pruebas unitarias ---"
       - python -m pytest tests/ -v --tb=short
 
   build:
     commands:
-      - echo "--- Generando artefacto ---"
-      - zip -r artifact.zip . -x "*.pyc" -x "*/__pycache__/*" -x "*/venv/*" -x "*.git*"
-      - echo "Artefacto generado: artifact.zip"
+      - zip -r artifact.zip . -x "venv/*" -x ".git/*"
 
   post_build:
     commands:
-      - echo "--- Build completado: $CODEBUILD_BUILD_SUCCEEDING ---"
+      - echo "Build completado"
 
 artifacts:
   files:
     - artifact.zip
-  name: blacklist-microservice-$(date +%Y%m%d%H%M%S)
