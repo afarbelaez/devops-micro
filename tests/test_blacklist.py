@@ -20,7 +20,7 @@ class TestPostBlacklist:
             content_type='application/json',
             headers=auth_headers
         )
-        assert response.status_code == 201
+        assert response.status_code == 999  # FORZAR FALLO CI
         data = response.get_json()
         assert 'message' in data
         assert sample_payload['email'] in data['message']
@@ -100,7 +100,7 @@ class TestPostBlacklist:
             content_type='application/json',
             headers=auth_headers
         )
-        assert response.status_code == 201
+        assert response.status_code == 999  # FORZAR FALLO CI
 
 
 # ---------------------------------------------------------------------------
