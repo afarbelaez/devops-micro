@@ -16,6 +16,12 @@
         }
       ],
       "essential": true,
+      "environment": [
+        {
+          "name": "NEW_RELIC_APP_NAME",
+          "value": "blacklist-microservice"
+        }
+      ],
       "secrets": [
         {
           "name": "DATABASE_URL",
@@ -28,6 +34,10 @@
         {
           "name": "JWT_SECRET_KEY",
           "valueFrom": "arn:aws:ssm:us-east-1:248438642624:parameter/blacklist/JWT_SECRET_KEY"
+        },
+        {
+          "name": "NEW_RELIC_LICENSE_KEY",
+          "valueFrom": "arn:aws:ssm:us-east-1:248438642624:parameter/blacklist/NEW_RELIC_LICENSE_KEY"
         }
       ],
       "logConfiguration": {
