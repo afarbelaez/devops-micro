@@ -20,6 +20,14 @@
         {
           "name": "NEW_RELIC_APP_NAME",
           "value": "blacklist-microservice"
+        },
+        {
+          "name": "NEW_RELIC_LOG",
+          "value": "stdout"
+        },
+        {
+          "name": "NEW_RELIC_LOG_LEVEL",
+          "value": "info"
         }
       ],
       "secrets": [
